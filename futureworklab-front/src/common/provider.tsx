@@ -1,7 +1,7 @@
 'use client';
 
 import React, { type ReactNode } from 'react';
-import ThemeProvider from '@/components/theme-provider';
+import ThemeProvider from '@/common/theme-provider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 interface ProviderProps {
