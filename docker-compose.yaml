@@ -1,0 +1,29 @@
+version: '3'
+services:
+
+  web:
+    container_name: web
+    image: docker_id/web
+    expose: 
+    - 8080
+    ports:
+    - 8080:8080
+
+  next:
+    container_name: front
+    image: docker_id/front
+    expose:
+    - 3000
+
+  ngnix:
+   container_name: nginx
+   image: nginx:latest
+   restart: always
+   volumes:
+   - ./conf/nginx.conf:/etc/nginx/conf.d/nginx.conf
+   ports:
+    - 80:80
+    - 443:443
+   depends_on:
+    - web
+    - next
