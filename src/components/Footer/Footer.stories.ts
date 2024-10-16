@@ -6,7 +6,7 @@ const meta: Meta<typeof FooterComponent> = {
   component: FooterComponent,
   tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen', // 전체 화면 레이아웃으로 설정
+    layout: 'fullscreen',
   },
 };
 
