@@ -1,20 +1,31 @@
-'use client';
-import React from 'react';
-import localFont from 'next/font/local';
-import './globals.css';
-import HeaderComponent from '@/components/Header';
-import FooterComponent from '@/components/Footer';
+import React, { Suspense } from 'react';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+import { GlobalStyle } from '@/styles';
+
+import Providers from './provider';
+
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  applicationName: 'FutureWorkLab',
+  keywords: ['퓨처워크랩', 'FutureWorkLab', '스타트업', 'AI', '소프트웨어'],
+  creator: 'FutureWorkLab Inc.',
+  publisher: 'FutureWorkLab Inc.',
+  description: '퓨처워크랩 공식 홈페이지입니다.',
+  title: {
+    template: '퓨처워크랩 - %s',
+    default: '퓨처워크랩',
+  },
+  openGraph: {
+    title: '퓨처워크랩',
+    description: '퓨처워크랩 공식 홈페이지입니다.',
+    siteName: 'FutureWorkLab',
+    locale: 'ko',
+    type: 'website',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -22,11 +33,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <HeaderComponent />
-        <main>{children}</main>
-        <FooterComponent />
+    <html lang="ko">
+      <head>
+        <meta name="robots" content="noindex" />
+      </head>
+      <body>
+        <Providers>
+          <ReactQueryDevtools />
+          <GlobalStyle />
+          <main>{children}</main>
+          <Suspense fallback={<div>Loading...</div>}></Suspense>
+        </Providers>
       </body>
     </html>
   );
