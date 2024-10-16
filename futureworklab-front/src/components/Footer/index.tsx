@@ -36,14 +36,17 @@ const Footer = styled.footer`
   align-items: center;
   position: relative;
   background-color: ${theme.color.black};
-  padding: 3.75rem 0;
+  padding: 2.5rem 1rem;
+  color: ${theme.color.white};
 `;
 
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100rem;
+  width: 100%;
+  max-width: 90rem;
+  padding: 0 2rem;
 
   @media ${theme.breakPoint['1440']} {
     width: calc(100vw - 12.5rem);
@@ -55,8 +58,14 @@ const Content = styled.div`
 `;
 
 const Copyright = styled.p`
-  ${theme.typo.h5}
+  ${theme.typo.h4}
   font-weight: 400;
+  color: ${theme.color.white};
+  text-align: center;
+
+  @media (max-width: 700px) {
+    font-size: 1rem;
+  }
 `;
 
 const LinkWrapper = styled.div`
@@ -65,11 +74,23 @@ const LinkWrapper = styled.div`
   a {
     ${theme.typo.h5}
     font-weight: 700;
+    color: ${theme.color.white};
+    text-decoration: none;
+
+    &:hover {
+      color: ${theme.color.primary};
+    }
   }
 
   @media ${theme.breakPoint['1024']} {
     flex-direction: column;
     gap: 0.5rem;
     align-items: start;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
   }
 `;
