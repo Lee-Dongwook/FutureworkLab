@@ -1,3 +1,5 @@
+export * from './useMounted';
+export * from './useObserver';
 export * from './useScrollHeight';
 export * from './useScrollTop';
 export * from './useWindowHeight';
