@@ -39,7 +39,7 @@ const HamburgerBackground = styled.div<{ isOpen: boolean }>`
 `;
 
 const HamburgerMenu = styled.div<{ isOpen: boolean }>`
-  width: 25rem;
+  width: 20rem;
   height: 100vh;
   position: fixed;
   top: 0;
