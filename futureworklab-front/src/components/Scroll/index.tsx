@@ -5,11 +5,11 @@ import styled from '@emotion/styled';
 
 import { theme } from '@/styles';
 
-interface ScrollProps {
+interface ScrollComponentProps {
   isScroll: boolean;
 }
 
-const ScrollComponent = ({ isScroll }: ScrollProps) => {
+const ScrollComponent = ({ isScroll }: ScrollComponentProps) => {
   return (
     <ScrollWrapper isScroll={isScroll}>
       <ScrollTitle>Scroll down to view more content</ScrollTitle>
